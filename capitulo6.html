@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Capítulo 6 - Primeiros Testes no Lab Hacker</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="favicon.icon.jpg">
+
+
+
+
+
+
+</head>
+
+<body>
+    <header>
+        <h1>Capítulo 6: Primeiros Testes no Lab Hacker</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>🔧 Preparando o ambiente</h2>
+            <p>
+                Certifica que tuas VMs estão ligadas: Kali Linux de um lado, DVWA ou Metasploitable do outro. Verifica se conseguem se pingar.
+            </p>
+        </section>
+
+        <section>
+            <h2>💥 Teste 1: Scanner com Nmap</h2>
+            <p>Abre o terminal do Kali e digita:</p>
+            <pre><code>nmap -sS -sV 192.168.56.101</code></pre>
+            <p>Esse comando faz um scan de portas e serviços. Perfeito pra conhecer teu alvo.</p>
+        </section>
+
+        <section>
+            <h2>🕵‍♂ Teste 2: Varredura com Nikto</h2>
+            <p>
+                O Nikto é top pra detectar vulnerabilidades em servidores web. Roda isso:
+            </p>
+            <pre><code>nikto -h http://192.168.56.101</code></pre>
+            <p>
+                Ele mostra falhas comuns como headers inseguros, diretórios ocultos, e outras paradas críticas.
+            </p>
+        </section>
+
+        <section>
+            <h2>🔓 Teste 3: Login via Brute Force com Hydra</h2>
+            <p>
+                Vamos tentar quebrar uma senha de login simples no DVWA:
+            </p>
+            <pre><code>hydra -l admin -P /usr/share/wordlists/rockyou.txt 192.168.56.101 http-post-form "/dvwa/login.php:username=^USER^&password=^PASS^:Login failed"</code></pre>
+            <p>
+                Isso tenta mil senhas usando o dicionário RockYou. Só usa isso em ambiente controlado!
+            </p>
+        </section>
+
+        <section>
+            <h2>💉 Teste 4: SQL Injection</h2>
+            <p>
+                No DVWA, vai na aba <strong>SQL Injection</strong>, modo “low”, e tenta isso no campo ID:
+            </p>
+            <pre><code>1' OR 1=1 --</code></pre>
+            <p>
+                Se aparecer todos os usuários do banco, parabéns: tu encontrou uma brecha real.
+            </p>
+        </section>
+
+        <section>
+            <h2>📌 Dicas finais</h2>
+            <ul>
+                <li>📓 Documenta tudo que tu faz (anota IPs, portas, respostas, etc.)</li>
+                <li>📚 Aprende cada ferramenta a fundo (não só copia e cola)</li>
+                <li>🧠 Reflete: como essa falha poderia ser evitada?</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>🚀 Conclusão</h2>
+            <p>
+                Esses testes são o primeiro passo na tua jornada prática. Com o lab montado e funcionando, tu pode estudar centenas de técnicas de invasão e defesa. Tu não é mais só um leitor… tu é um praticante!
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Gilbeon Santos - Gilbeon Tech Soluções</p>
+    </footer>
+</body>
+
+</html>
